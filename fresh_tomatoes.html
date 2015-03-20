@@ -1,0 +1,172 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Marysabelle Lynn</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 30px;
+        }
+        #trailer.modal-dialog {
+            margin-top: 300px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;            
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: grey;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: red;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body style="background-color:#E6E6FA";>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Marysabelle's - Movie Trailers</a>            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 style="background: #E6E6FA; text-align: center;">My first Python Project!</h1>      
+                <p align="center">Hover over and click to enjoy the trailers.</p>   
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="d1_JBMrrYw8" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/b/b0/Avatar-Teaser-Poster.jpg" width="250" height="360">
+    <h3>Avatar</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="q2x14ZhEc9k" data-toggle="modal" data-target="#trailer">
+    <img src="https://telestrekoza.com/link-gallery/uploads/cancelled/BSG/Posters/BSG-S2-Poster-01.jpg" width="250" height="360">
+    <h3>Batlestar Galactica</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="SMGRhAEn6K0" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/4/42/HungerGamesPoster.jpg" width="250" height="360">
+    <h3>The Hunger Games</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="SBx5Jrs9eGc" data-toggle="modal" data-target="#trailer">
+    <img src="http://imageserver.moviepilot.com/independence-day-indepence-day-2-set-for-2016-but-its-major-star-won-t-be-onboard.jpeg" width="250" height="360">
+    <h3>Independance Day</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="hfpbZmQHkWw" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/c/c1/The_Matrix_Poster.jpg" width="250" height="360">
+    <h3>The Matrix</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="-czwy-aVbbU" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/c/cf/Kill_bill_vol_one_ver.jpg" width="250" height="360">
+    <h3>Kill Bill</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ClNPiTjo808" data-toggle="modal" data-target="#trailer">
+    <img src="http://tesseraguild.com/wp-content/uploads/2015/01/A-Knights-Tale-2001-movie-poster.jpg" width="250" height="360">
+    <h3>A Night's Tale</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="FAOzXGibKJc" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/0/03/Leon-poster.jpg" width="250" height="360">
+    <h3>Leon The Professional</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="PxIKKgIkLUw" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/8/84/The_Wedding_Singer_film_poster.jpg" width="250" height="360">
+    <h3>The Wedding Singer</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="KYz2wyBy3kc" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg" width="250" height="360">
+    <h3>Toy Story</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="c3sBBRxDAqk" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/1/11/School_of_Rock_Poster.jpg" width="250" height="360">
+    <h3>School of Rock</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5nOF93SzX6s" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/9/9f/Midnight_in_Paris_Poster.jpg" width="250" height="360">
+    <h3>Midnight in Paris</h3>
+</div>
+
+    </div>
+  </body>
+</html>
